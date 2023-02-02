@@ -5,3 +5,4 @@ This game can only be played in the browser of your console. Please open your br
 
 After five rounds are played you must refresh the page to play another five rounds.
 
+LIVE LINK : https://probableactions.github.io/rock-paper-scissors/
