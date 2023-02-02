@@ -26,6 +26,37 @@ function validate(choice) {
     return choices.includes(choice);
 }
 
+function game (){
+    for (let i = 1; i <= 5; i++) {
+    playRound();
+    }
+}
 
-console.log(getComputerChoice() + ' - from computer');
-console.log(getPlayerChoice() + ' - from player');
+function playRound() {
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+    roundLog();
+    return checkRound();
+    
+}
+
+function checkRound() {
+    switch (true) {
+        case (playerSelection === computerSelection):
+        return 'TIE';
+        break;
+        case ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')):
+        return 'WIN';
+        default :
+        return 'LOSE';
+        break;
+    }
+}
+
+function roundLog() {
+    // console.log('ROUND # : ' )
+    console.log('You chose to play ' + playerSelection);
+    console.log('Computer chose to play ' + computerSelection);
+    console.log('YOU ' + checkRound());
+}
+game ();
