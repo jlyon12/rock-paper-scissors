@@ -5,6 +5,8 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)]
 }
 
+document.querySelector('#start-game').addEventListener('click', game);
+
 function getPlayerChoice() {
     let input = prompt('Choose your weapon: Please type Rock, Paper, or Scissors.');
     while (input === null) {
@@ -75,5 +77,3 @@ function finalScore() {
     console.log('Ties: ' + ties)
 }
     
-
-game ();

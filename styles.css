@@ -6,32 +6,48 @@
 }
 body {
     background-color: thistle;
+    color:white;
 }
 h1 {
-    font-size: 48px;;
+    font-size: 48px;
 }
 
 p {
-    font-size: 18px;;
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+}
+span {
+    font-weight: bold;
 }
 
 .flex-container{
-    margin-top:20px;
-    margin-left: auto;
-    margin-right:auto;
+    margin-top:50px;
+    margin-left: 200px;
+    margin-right:200px;
     padding-left:100px;
     padding-right:100px;
+    padding-top:50px;
+    padding-bottom:50px;
     display: flex;
     justify-content:center;
     gap:50px;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    width:600px;
-    height:300px;
     background-color: lightcoral;
 }
 
-span {
+#start-game {
+    padding:20px;
+    background-color: thistle;
+    color:black;
     font-weight: bold;
+}
+
+#start-game:hover {
+    background-color: lightcoral;
+    border-color:thisle;
 }
