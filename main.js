@@ -1,4 +1,6 @@
 const choices = ['rock','paper','scissors'];
+const scores = []
+
 function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)]
 }
@@ -28,19 +30,22 @@ function validate(choice) {
 
 function game (){
     for (let i = 1; i <= 5; i++) {
-    playRound();
+        playRound();
+        console.log ('Round # ' + i)
+        logRound();
     }
+    console.log('===============');
+   finalScore();
 }
 
 function playRound() {
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
-    roundLog();
-    return checkRound();
-    
+    scores.push(calcRound());
+
 }
 
-function checkRound() {
+function calcRound() {
     switch (true) {
         case (playerSelection === computerSelection):
         return 'TIE';
@@ -53,10 +58,22 @@ function checkRound() {
     }
 }
 
-function roundLog() {
-    // console.log('ROUND # : ' )
-    console.log('You chose to play ' + playerSelection);
-    console.log('Computer chose to play ' + computerSelection);
-    console.log('YOU ' + checkRound());
+function logRound() {
+    console.log('You chose to play ' + playerSelection + '.');
+    console.log('Computer chose to play ' + computerSelection + '.');
+    console.log('YOU ' + calcRound());
+    console.log('---------------');
 }
+
+function finalScore() {
+    let playerScore = scores.filter((item) => item == 'WIN').length;
+    let computerScore = scores.filter((item) => item == 'LOSE').length;
+    let ties = scores.filter((item) => item == 'TIE').length;
+    console.log('FINAL GAME RESULTS');
+    console.log('Player wins : ' + playerScore)
+    console.log('Computer wins : ' + computerScore)
+    console.log('Ties: ' + ties)
+}
+    
+
 game ();
