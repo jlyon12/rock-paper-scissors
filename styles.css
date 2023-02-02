@@ -7,14 +7,13 @@
 body {
     background-color: thistle;
     color:white;
+    font-size:18px;
 }
 h1 {
     font-size: 48px;
 }
 
-p {
-    font-size: 18px;
-}
+
 
 li {
     list-style: none;
