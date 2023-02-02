@@ -7,6 +7,14 @@
 body {
     background-color: thistle;
 }
+h1 {
+    font-size: 48px;;
+}
+
+p {
+    font-size: 18px;;
+}
+
 .flex-container{
     margin-top:20px;
     margin-left: auto;
