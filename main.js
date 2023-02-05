@@ -11,8 +11,6 @@ buttons.forEach((button) => {
         // On-click event will call the below game logic via playRound function
         const computerWeapon = getComputerChoice();
         const playerWeapon = button.value;
-        console.log('You played: '+ playerWeapon);
-        console.log('Computer played: ' + computerWeapon);
         function roundResult() { 
         switch (true) {
         case (playerWeapon === computerWeapon):
@@ -26,7 +24,13 @@ buttons.forEach((button) => {
             break;
         }
     }
-    console.log('Round result: You ' + roundResult());
+    const container = document.querySelector('.flex-container');
+
+    let results = document.createElement('div');
+    results.classList.add('results');
+    results.textContent = 'You chose ' + playerWeapon + ' and Computer chose ' + computerWeapon + '. Result: You ' + roundResult() + '.';
+
+    container.appendChild(results);
     });
 });
 
