@@ -8,10 +8,10 @@
 body {
     background-color: thistle;
     font-size:24px;
+    padding:50px;
 }
 
 .flex-container {
-    margin-top:48px;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -37,6 +37,9 @@ body {
 
 .user-input {
     background-color: lightcoral;
+    color:white;
+    font-size:18px;
+    font-weight:700;
     padding:12px;
     width:150px;
     border-radius:8px;

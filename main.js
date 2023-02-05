@@ -4,6 +4,9 @@ function getComputerChoice() {
     return weapons[Math.floor(Math.random()*weapons.length)];
 }
 
+//Empty array to push the result of the rounds into. 
+const scoreBoard = [];
+
 //Event listener on-click for user input
 
 const buttons = document.querySelectorAll('button');
@@ -12,6 +15,7 @@ buttons.forEach((button) => {
         // On-click event will call the below game logic via playRound function
         const computerWeapon = getComputerChoice();
         const playerWeapon = button.value;
+        if (scoreBoard.length <=4) {
         function roundResult() { 
         switch (true) {
         case (playerWeapon === computerWeapon):
@@ -23,9 +27,16 @@ buttons.forEach((button) => {
         case ((playerWeapon === 'Rock' && computerWeapon === 'Paper') || (playerWeapon === 'Paper' && computerWeapon === 'Scissors') || (playerWeapon === 'Scissors' && computerWeapon === 'Rock')):
             return 'lose';
             break;
-        }
     }
-
+    }
+        //Pushes result of the round into empty scoreBoard array
+        //Calculate running scores from that array
+        scoreBoard.push(roundResult());
+        let runningTies = scoreBoard.filter((item => item === 'tie')).length;
+        let runningPlayerScore = scoreBoard.filter((item => item === 'win')).length;
+        let runningComputerScore = scoreBoard.filter((item => item === 'lose')).length;
+        
+        
     // Target HTML Flex Container and append a new div for results only after on click
     const container = document.querySelector('.flex-container');
 
@@ -37,7 +48,7 @@ buttons.forEach((button) => {
     //Round number output div
     let roundNumber = document.createElement('div');
     roundNumber.classList.add('round-number');
-    roundNumber.textContent = "Round Results: ";
+    roundNumber.textContent = "Round Results: " + scoreBoard.length;
 
     results.appendChild(roundNumber);
 
@@ -61,10 +72,7 @@ buttons.forEach((button) => {
     roundResultsOutput.textContent = "You " + roundResult();
 
     results.appendChild(roundResultsOutput);
-
-    // //Remove Round Result Div
-    // container.removeChild(results);
-
+    }
     });
 });
 
