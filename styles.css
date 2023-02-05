@@ -1,0 +1,53 @@
+*,
+::before,
+::after {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: thistle;
+    font-size:24px;
+}
+
+.flex-container {
+    margin-top:48px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:24px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap:wrap;
+    width:500px;
+
+}
+.user-choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:12px;
+}
+
+.user-input {
+    background-color: lightcoral;
+    padding:12px;
+    width:150px;
+    border-radius:8px;
+    border-style: none;
+    border:1px solid rgb(142, 31, 31);
+}
+
+.user-input:hover {
+    transform: scale(1.1);
+    background-color: lightsalmon;
+}
+.round-number {
+    font-weight: 700;
+}
