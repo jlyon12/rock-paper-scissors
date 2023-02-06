@@ -54,3 +54,12 @@ body {
 .round-number {
     font-weight: 700;
 }
+
+.running-total-container {
+    width:500px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    font-weight: 700;
+
+}

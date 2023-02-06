@@ -8,7 +8,6 @@ function getComputerChoice() {
 const scoreBoard = [];
 
 //Event listener on-click for user input
-
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', function playRound()  {
@@ -42,6 +41,7 @@ buttons.forEach((button) => {
 
     let results = document.createElement('div');
     results.classList.add('results');
+    results.classList.toggle('disappear');
 
     container.appendChild(results);
 
@@ -66,12 +66,25 @@ buttons.forEach((button) => {
  
      results.appendChild(computerOutput);
 
-      //Round Results div creation 
+    //Round Results div creation 
     const roundResultsOutput = document.createElement('div');
     roundResultsOutput.classList.add('round-results-output')
     roundResultsOutput.textContent = "You " + roundResult();
 
     results.appendChild(roundResultsOutput);
+
+    //Running Totals
+    const runningPlayerScoreOutput = document.querySelector('#player-total');
+    runningPlayerScoreOutput.textContent = 'Player Wins : ' + runningPlayerScore;
+
+    const runningTiesOutput = document.querySelector('#tie-total');
+    runningTiesOutput.textContent = 'Total Ties: ' + runningTies;
+
+    const runningComputerScoreOutput = document.querySelector('#computer-total');
+    runningComputerScoreOutput.textContent = 'Computer Wins : ' + runningComputerScore;
+
+    
+
     }
     });
 });
