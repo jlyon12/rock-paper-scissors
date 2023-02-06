@@ -27,6 +27,7 @@ buttons.forEach((button) => {
             return 'lose';
             break;
     }
+    
     }
         //Pushes result of the round into empty scoreBoard array
         //Calculate running scores from that array
@@ -37,8 +38,10 @@ buttons.forEach((button) => {
         
         
     //Round Results
+    
+
     let roundNumber = document.querySelector('#round-number');
-    roundNumber.textContent = "Round Number: " + scoreBoard.length;
+    roundNumber.textContent = "Round " + scoreBoard.length + ' of 5';
 
     let playerOutput = document.querySelector('#player-result');
     playerOutput.textContent = "You played " + playerWeapon;
@@ -46,7 +49,7 @@ buttons.forEach((button) => {
     let computerOutput = document.querySelector('#computer-result');
      computerOutput.textContent = "Computer played " + computerWeapon;
 
-     let roundResultsOutput = document.querySelector('#round-result');
+    let roundResultsOutput = document.querySelector('#round-result');
     roundResultsOutput.textContent = "You " + roundResult();
 
     //Running Totals
@@ -59,9 +62,38 @@ buttons.forEach((button) => {
     let runningComputerScoreOutput = document.querySelector('#computer-total');
     runningComputerScoreOutput.textContent = 'Computer Wins : ' + runningComputerScore;
 
-    
+    //Game end output on total rounds reached
+
+    function gameEnd() {
+        switch (true) {
+            case (runningPlayerScore >= 3):
+                return 'Congrats! You have won the game.';
+                break;
+            case (runningComputerScore >= 3):
+                return 'Bummer! You have lost the game.';
+                break;
+            case (runningTies >= 3):
+                return 'Try again! There is no definitive winner.';
+                break;
+        }
+    }
+
+    let totalRoundsPlayed = scoreBoard.length
+    if (totalRoundsPlayed === 5 ) {
+        let gameEndResultOutput = document.querySelector('#game-end-text');
+        gameEndResultOutput.classList.remove('hidden');
+        gameEndResultOutput.textContent = gameEnd();
+
+        let gameRestart = document.querySelector('#game-restart-btn');
+        gameRestart.classList.remove('hidden');
+
 
     }
+    }
+    
+
+    
+
     });
 });
 

@@ -17,11 +17,14 @@
             <p class="game-text">You will play five rounds against the computer.</p>
         </div>
         <div class="user-choices">
-            <button class="user-input" id="rock-btn" value="Rock">Rock</button>
-            <button class="user-input" id="paper-btn" value="Paper">Paper</button>
-            <button class="user-input" id="scissors-btn" value="Scissors">Scissors</button>
+            <button class="btn" id="rock-btn" value="Rock">Rock</button>
+            <button class="btn" id="paper-btn" value="Paper">Paper</button>
+            <button class="btn" id="scissors-btn" value="Scissors">Scissors</button>
         </div>
-        <div class="round-result-container">
+        <div class="game-end-container">
+            <div class="game-end-results hidden" id="game-end-text"></div>
+        </div>
+        <div id="round-result-container">
             <div class="round-result" id="round-number"></div>
             <div class="round-result" id="player-result"></div>
             <div class="round-result" id="computer-result"></div>
@@ -32,6 +35,7 @@
             <div class="running-total" id="tie-total"></div>
             <div class="running-total" id="computer-total"></div>
         </div>
+        <button class="btn hidden" id="game-restart-btn" onClick="window.location.reload();">Restart Game</button>
     </div>
 </body>
 

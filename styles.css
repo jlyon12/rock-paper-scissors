@@ -57,7 +57,7 @@ body {
     gap:12px;
 }
 
-.user-input {
+.btn{
     background-color: lightcoral;
     color:white;
     font-size:18px;
@@ -69,7 +69,7 @@ body {
     border:1px solid rgb(142, 31, 31);
 }
 
-.user-input:hover {
+.btn:hover {
     transform: scale(1.1);
     background-color: lightsalmon;
 }
@@ -86,4 +86,8 @@ body {
     align-items:center;
     font-weight: 700;
 
+}
+
+.hidden {
+    display:none;
 }
