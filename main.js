@@ -37,7 +37,7 @@ buttons.forEach((button) => {
         
         
     // Target HTML Flex Container and append a new div for results only after on click
-    const container = document.querySelector('.flex-container');
+    let container = document.querySelector('.flex-container');
 
     let results = document.createElement('div');
     results.classList.add('results');
@@ -45,42 +45,27 @@ buttons.forEach((button) => {
 
     container.appendChild(results);
 
-    //Round number output div
-    let roundNumber = document.createElement('div');
-    roundNumber.classList.add('round-number');
+    //Round Results
+    let roundNumber = document.querySelector('#round-number');
     roundNumber.textContent = "Round Results: " + scoreBoard.length;
 
-    results.appendChild(roundNumber);
-
-    //Player output div creation 
-    const playerOutput = document.createElement('div');
-    playerOutput.classList.add('player-output')
+    let playerOutput = document.querySelector('#player-result');
     playerOutput.textContent = "You chose to play " + playerWeapon;
 
-    results.appendChild(playerOutput);
-
-     //Computer output div creation 
-     const computerOutput = document.createElement('div');
-     computerOutput.classList.add('computer-output')
+    let computerOutput = document.querySelector('#computer-result');
      computerOutput.textContent = "Computer chose to play " + computerWeapon;
- 
-     results.appendChild(computerOutput);
 
-    //Round Results div creation 
-    const roundResultsOutput = document.createElement('div');
-    roundResultsOutput.classList.add('round-results-output')
+     let roundResultsOutput = document.querySelector('#round-result');
     roundResultsOutput.textContent = "You " + roundResult();
 
-    results.appendChild(roundResultsOutput);
-
     //Running Totals
-    const runningPlayerScoreOutput = document.querySelector('#player-total');
+    let runningPlayerScoreOutput = document.querySelector('#player-total');
     runningPlayerScoreOutput.textContent = 'Player Wins : ' + runningPlayerScore;
 
-    const runningTiesOutput = document.querySelector('#tie-total');
+    let runningTiesOutput = document.querySelector('#tie-total');
     runningTiesOutput.textContent = 'Total Ties: ' + runningTies;
 
-    const runningComputerScoreOutput = document.querySelector('#computer-total');
+    let runningComputerScoreOutput = document.querySelector('#computer-total');
     runningComputerScoreOutput.textContent = 'Computer Wins : ' + runningComputerScore;
 
     
