@@ -8,19 +8,41 @@
 body {
     background-color: thistle;
     font-size:24px;
-    padding:50px;
+    
 }
 
 .flex-container {
+    padding:50px;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     gap:24px;
 }
 
-.results {
+.game-header {
+    display:flex;
+    width:50%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+#game-title,
+.game-text {
+    width:100%;
+    text-align: center;
+}
+
+.game-text {
+    margin-top:24px;
+
+}
+
+
+.round-result-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +73,9 @@ body {
     transform: scale(1.1);
     background-color: lightsalmon;
 }
-.round-number {
+
+#round-number,
+#round-result {
     font-weight: 700;
 }
 

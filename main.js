@@ -36,24 +36,15 @@ buttons.forEach((button) => {
         let runningComputerScore = scoreBoard.filter((item => item === 'lose')).length;
         
         
-    // Target HTML Flex Container and append a new div for results only after on click
-    let container = document.querySelector('.flex-container');
-
-    let results = document.createElement('div');
-    results.classList.add('results');
-    results.classList.toggle('disappear');
-
-    container.appendChild(results);
-
     //Round Results
     let roundNumber = document.querySelector('#round-number');
-    roundNumber.textContent = "Round Results: " + scoreBoard.length;
+    roundNumber.textContent = "Round Number: " + scoreBoard.length;
 
     let playerOutput = document.querySelector('#player-result');
-    playerOutput.textContent = "You chose to play " + playerWeapon;
+    playerOutput.textContent = "You played " + playerWeapon;
 
     let computerOutput = document.querySelector('#computer-result');
-     computerOutput.textContent = "Computer chose to play " + computerWeapon;
+     computerOutput.textContent = "Computer played " + computerWeapon;
 
      let roundResultsOutput = document.querySelector('#round-result');
     roundResultsOutput.textContent = "You " + roundResult();
