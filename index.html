@@ -5,37 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script  defer src="main.js"></script>
     
 </head>
-<body>
-    <div class="flex-container">
+<body class="clr-bg-main">
+    <div class="flex-container clr-secondary">
         <div class="game-header">
-            <h1 id="game-title">Rock Paper Scissors</h1>
-            <p class="game-text">Choose your weapon!</p>
-            <p class="game-text">You will play five rounds against the computer.</p>
+            <h1 id="game-title" class="fw-bold fs-300 ">Rock Paper Scissors</h1>
+            <p class="game-text fw-bold fs-150 ">Choose your weapon!</p>
+            <p class="game-text fw-light fs-100 "><span class="clr-accent-100">You</span> will play five rounds against the <span class="clr-accent-200">computer.</span></p>
         </div>
         <div class="user-choices">
-            <button class="btn" id="rock-btn" value="Rock">Rock</button>
-            <button class="btn" id="paper-btn" value="Paper">Paper</button>
-            <button class="btn" id="scissors-btn" value="Scissors">Scissors</button>
-        </div>
-        <div class="game-end-container">
-            <div class="game-end-results hidden" id="game-end-text"></div>
+            <button class="btn fw-bold fs-125" id="rock-btn" value="Rock">Rock</button>
+            <button class="btn fw-bold fs-125" id="paper-btn" value="Paper">Paper</button>
+            <button class="btn fw-bold fs-125" id="scissors-btn" value="Scissors">Scissors</button>
         </div>
         <div id="round-result-container">
-            <div class="round-result" id="round-number"></div>
-            <div class="round-result" id="player-result"></div>
-            <div class="round-result" id="computer-result"></div>
-            <div class="round-result" id="round-result"></div>
+            <div class="round-result fw-bold" id="round-number"></div>
+            <div class="round-result clr-accent-100" id="player-result"></div>
+            <div class="round-result clr-accent-200" id="computer-result"></div>
+            <div class="round-result fw-bold" id="round-result"></div>
         </div>
         <div class="running-total-container">
-            <div class="running-total" id="player-total"></div>
-            <div class="running-total" id="tie-total"></div>
-            <div class="running-total" id="computer-total"></div>
+            <div class="running-total fw-bold fs-125 clr-accent-100" id="player-total"></div>
+            <div class="running-total fw-bold fs-125 clr-accent-300" id="tie-total"></div>
+            <div class="running-total fw-bold fs-125 clr-accent-200" id="computer-total"></div>
         </div>
-        <button class="btn hidden" id="game-restart-btn" onClick="window.location.reload();">Restart Game</button>
+        
+        <div class="game-end-results hidden" id="game-end-text"></div>
+        
+        <button class="btn hidden fw-bold fs-125" id="game-restart-btn" onClick="window.location.reload();">Restart Game</button>
     </div>
 </body>
 
