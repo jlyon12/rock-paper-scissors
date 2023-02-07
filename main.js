@@ -1,79 +1,67 @@
-const choices = ['rock','paper','scissors'];
-const scores = []
-
+//Randomly generate computer choice from array via function
+const weapons = ['Rock','Paper','Scissors'];
 function getComputerChoice() {
-    return choices[Math.floor(Math.random()*choices.length)]
+    return weapons[Math.floor(Math.random()*weapons.length)];
 }
 
-document.querySelector('#start-game').addEventListener('click', game);
+//Empty array to push the result of the rounds into. 
+const scoreBoard = [];
 
-function getPlayerChoice() {
-    let input = prompt('Choose your weapon: Please type Rock, Paper, or Scissors.');
-    while (input === null) {
-        input = prompt ('You are empty handed there, partner.\nPlease choose your weapon by typing Rock, Paper, or Scissors');
+//Event listener on-click for user input
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', function playRound()  {
+        // On-click event will call the below game logic via playRound function
+        const computerWeapon = getComputerChoice();
+        const playerWeapon = button.value;
+        if (scoreBoard.length <=4) {
+        function roundResult() { 
+        switch (true) {
+        case (playerWeapon === computerWeapon):
+            return 'tie';
+            break;
+        case ((playerWeapon === 'Rock' && computerWeapon === 'Scissors') || (playerWeapon === 'Paper' && computerWeapon === 'Rock') || (playerWeapon === 'Scissors' && computerWeapon === 'Paper')):
+            return 'win';
+            break;
+        case ((playerWeapon === 'Rock' && computerWeapon === 'Paper') || (playerWeapon === 'Paper' && computerWeapon === 'Scissors') || (playerWeapon === 'Scissors' && computerWeapon === 'Rock')):
+            return 'lose';
+            break;
     }
-    input = input.toLowerCase();
-    let check = validate(input);
-    while (check === false) {
-        input = prompt ('Our weapon choices are limited... Make sure you are choosing either Rock, Paper, or Scissors. Please check your spelling');
+    }
+        //Pushes result of the round into empty scoreBoard array
+        //Calculate running scores from that array
+        scoreBoard.push(roundResult());
+        let runningTies = scoreBoard.filter((item => item === 'tie')).length;
+        let runningPlayerScore = scoreBoard.filter((item => item === 'win')).length;
+        let runningComputerScore = scoreBoard.filter((item => item === 'lose')).length;
+        
+        
+    //Round Results
+    let roundNumber = document.querySelector('#round-number');
+    roundNumber.textContent = "Round Number: " + scoreBoard.length;
+
+    let playerOutput = document.querySelector('#player-result');
+    playerOutput.textContent = "You played " + playerWeapon;
+
+    let computerOutput = document.querySelector('#computer-result');
+     computerOutput.textContent = "Computer played " + computerWeapon;
+
+     let roundResultsOutput = document.querySelector('#round-result');
+    roundResultsOutput.textContent = "You " + roundResult();
+
+    //Running Totals
+    let runningPlayerScoreOutput = document.querySelector('#player-total');
+    runningPlayerScoreOutput.textContent = 'Player Wins : ' + runningPlayerScore;
+
+    let runningTiesOutput = document.querySelector('#tie-total');
+    runningTiesOutput.textContent = 'Total Ties: ' + runningTies;
+
+    let runningComputerScoreOutput = document.querySelector('#computer-total');
+    runningComputerScoreOutput.textContent = 'Computer Wins : ' + runningComputerScore;
+
     
-    while (input === null) {
-        input = prompt ('You are empty handed there, partner.\nPlease choose your weapon by typing Rock, Paper, or Scissors');
+
     }
-    input = input.toLowerCase();
-    check = validate(input);
-}
-    return input;
-}
+    });
+});
 
-function validate(choice) {
-    return choices.includes(choice);
-}
-
-function game (){
-    for (let i = 1; i <= 5; i++) {
-        playRound();
-        console.log ('Round # ' + i)
-        logRound();
-    }
-    console.log('===============');
-   finalScore();
-}
-
-function playRound() {
-    playerSelection = getPlayerChoice();
-    computerSelection = getComputerChoice();
-    scores.push(calcRound());
-
-}
-
-function calcRound() {
-    switch (true) {
-        case (playerSelection === computerSelection):
-        return 'TIE';
-        break;
-        case ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')):
-        return 'WIN';
-        default :
-        return 'LOSE';
-        break;
-    }
-}
-
-function logRound() {
-    console.log('You chose to play ' + playerSelection + '.');
-    console.log('Computer chose to play ' + computerSelection + '.');
-    console.log('YOU ' + calcRound());
-    console.log('---------------');
-}
-
-function finalScore() {
-    let playerScore = scores.filter((item) => item == 'WIN').length;
-    let computerScore = scores.filter((item) => item == 'LOSE').length;
-    let ties = scores.filter((item) => item == 'TIE').length;
-    console.log('FINAL GAME RESULTS');
-    console.log('Player wins : ' + playerScore)
-    console.log('Computer wins : ' + computerScore)
-    console.log('Ties: ' + ties)
-}
-    

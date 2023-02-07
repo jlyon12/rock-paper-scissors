@@ -11,13 +11,27 @@
 </head>
 <body>
     <div class="flex-container">
-        <h1>Rock Paper Scissors</h1>
-        <br>This is only playable within your browser console. Please open your brower's dev tools and navigate to the console. </br> Depending on which browser you are using there are different keyboard shortcuts to open the dev tools pane.</br> Note : Please ensure your dev-tools is docked to the bottom of you browser for optimal view.</p>
-        <ul>
-            <li><span>Chrome or Firefox </span>Press <span>F12</span></li>
-            <li><span>Safari </span>Press <span>⌘ +  ⌥ + c </span></li>
-        </ul>
-        <button id="start-game">Start Game</button>
+        <div class="game-header">
+            <h1 id="game-title">Rock Paper Scissors</h1>
+            <p class="game-text">Choose your weapon!</p>
+            <p class="game-text">You will play five rounds against the computer.</p>
+        </div>
+        <div class="user-choices">
+            <button class="user-input" id="rock-btn" value="Rock">Rock</button>
+            <button class="user-input" id="paper-btn" value="Paper">Paper</button>
+            <button class="user-input" id="scissors-btn" value="Scissors">Scissors</button>
+        </div>
+        <div class="round-result-container">
+            <div class="round-result" id="round-number"></div>
+            <div class="round-result" id="player-result"></div>
+            <div class="round-result" id="computer-result"></div>
+            <div class="round-result" id="round-result"></div>
+        </div>
+        <div class="running-total-container">
+            <div class="running-total" id="player-total"></div>
+            <div class="running-total" id="tie-total"></div>
+            <div class="running-total" id="computer-total"></div>
+        </div>
     </div>
 </body>
 
